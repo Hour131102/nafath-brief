@@ -17,9 +17,15 @@ The OWASP Mobile Application Security Verification Standard (MASVS) provides the
 https://mas.owasp.org/MASVS/
 
 Networking
+The Border Gateway Protocol (BGP) allows networks to exchange routing information over the internet, but it is vulnerable to "route hijacking" incidents. In these incidents, an independent system falsely claims an IP address range that it does not own, causing data traffic to be diverted through unintended routes. To counter this, the "BGP Domain Origin Verification" feature aims to ensure that the claiming system is legitimately using that domain. Therefore, network operators are advised to verify route origins and monitor for any suspicious claims. While this measure reduces the risk, it does not completely prevent all routing attacks.
+Resource: RFC 6811: BGP Prefix Origin Validation - https://www.rfc-editor.org/rfc/rfc6811.html
 
 Cybersecurity
+Log4Shell, classified as CVE-2021-44228, is a critical vulnerability that affects select versions of the widely used Java event logging library, Apache Log4j 2. Under compromised circumstances, log messages controlled by third parties can trigger JNDI lookups, leading to remote code execution. To address this, organizations must identify affected applications and dependencies, upgrade to secure versions compatible with their Java environment, and ensure that vulnerable components are completely removed; Maintaining a comprehensive inventory of software dependencies helps teams discover exposure points and address them efficiently.
+Resource: Security - Apache Logging Services - https://logging.apache.org/security.html
 
 Data
+A Software Components List (SBOM) is a structured record detailing the components of a software product and their relationships. It enhances supply chain transparency by enabling organizations to identify dependencies, investigate vulnerabilities, and track which products are affected by newly discovered issues. The minimum elements specified by the National Telecommunication Authority (NTIA) include: vendor name, component name, version number, unique identifiers, dependency relationships, issuer, and timestamp. While a SBOM is a cornerstone of risk management, it does not, on its own, guarantee absolute software security.
+Resource: The Minimum Elements For a Software Bill of Materials (SBOM) - https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom
 
 Misconception in My Track
