@@ -5,7 +5,7 @@ Overview
 A software supply chain encompasses the software, libraries, tools, AI models, mobile applications, network infrastructure, and data utilized for creating and delivering digital services. If any part of this chain is compromised, attackers can jeopardize the security, reliability, and privacy of the entire service. For a telecommunications service provider, safeguarding this supply chain is crucial, as customers rely on secure connectivity and trustworthy digital systems. This exploration delves into six interconnected domains: Software, AI, Mobile, Networking, Cybersecurity, and Data. Each domain highlights significant risks, practical security measures, and dependable resources for further exploration. Collectively, these subjects emphasize the importance of considering security throughout the development, deployment, and upkeep of technology.For the Networking track, understanding BGP route hijacking and the safeguards that reduce the risk of unauthorized traffic redirection is essential to protecting national telecommunications services.
 
 Software
-The twelve-factor approach to applications emphasizes the importance of treating logs as flowing data sources, not as locally stored text files. It recommends that the application simply pump all events and logs into the standard output, leaving the task of collecting, routing, or archiving them to the operating environment or external tools. This approach prevents the application from worrying about log file management or size inflation, facilitating efficient and secure system monitoring and error analysis across centralized analysis platforms.
+The Twelve-Factor App recommends storing configuration in environment variables rather than hard-coding it in application code. Configuration includes deployment-specific values such as database credentials and external service settings. Separating configuration from code allows the same application to run in different environments without code changes. It also reduces the risk of accidentally committing secrets to version control. Sensitive credentials should be managed with appropriate access controls and should never be embedded directly in source code.
 Resource: The Twelve-Factor App - Config - https://12factor.net/config
 
 AI
@@ -25,11 +25,15 @@ Log4Shell, classified as CVE-2021-44228, is a critical vulnerability that affect
 Resource: Security - Apache Logging Services - https://logging.apache.org/security.html
 
 Data
-A Software Components List (SBOM) is a structured record detailing the components of a software product and their relationships. It enhances supply chain transparency by enabling organizations to identify dependencies, investigate vulnerabilities, and track which products are affected by newly discovered issues. The minimum elements specified by the National Telecommunication Authority (NTIA) include: vendor name, component name, version number, unique identifiers, dependency relationships, issuer, and timestamp. While a SBOM is a cornerstone of risk management, it does not, on its own, guarantee absolute software security.
+A Software Bill of Materials (SBOM) is a structured inventory of software components and their relationships. It helps organizations identify dependencies, investigate newly disclosed vulnerabilities, and determine which products may be affected. NTIA's minimum elements include the supplier name, component name, component version, other unique identifiers, dependency relationships, SBOM author, and timestamp. An SBOM improves visibility into the software supply chain, but it does not by itself prove that software is secure or free of vulnerabilities.
 Resource: The Minimum Elements For a Software Bill of Materials (SBOM) - https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom
 
 Misconception in My Track
-is that enabling BGP route origin verification using RPKI completely prevents route hijacking attacks. In reality, this mechanism only verifies the legitimacy of the independent system declaring an IP address range, without examining the entire network route. The standard document (RFC 6811) states in the "Security Considerations" section that this technology offers limited protection against sophisticated attackers and does not protect against "middleman" attacks. Therefore, network operators must integrate origin verification with robust routing policies, continuous monitoring systems, and incident response procedures; origin verification is an important preventative measure but not a comprehensive solution on its own.
+A common misconception is that RPKI-based BGP origin validation completely prevents route hijacking. In fact, RFC 6811 explains that this mechanism checks the authorized origin of a route but does not validate the complete network path. It also provides only limited protection against a determined attacker. Network operators should therefore combine origin validation with routing policies, monitoring, and incident response. Origin validation is an important safeguard, but it is not a complete defense against every BGP attack.
+
+Supporting section: RFC 6811, Section 6, "Security Considerations."
+
+Supporting sentence from the source: "This mechanism does not protect against "AS-in-the-middle attacks" or provide any path validation."
 
 Open Question
 
