@@ -29,3 +29,8 @@ A Software Components List (SBOM) is a structured record detailing the component
 Resource: The Minimum Elements For a Software Bill of Materials (SBOM) - https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom
 
 Misconception in My Track
+is that enabling BGP route origin verification using RPKI completely prevents route hijacking attacks. In reality, this mechanism only verifies the legitimacy of the independent system declaring an IP address range, without examining the entire network route. The standard document (RFC 6811) states in the "Security Considerations" section that this technology offers limited protection against sophisticated attackers and does not protect against "middleman" attacks. Therefore, network operators must integrate origin verification with robust routing policies, continuous monitoring systems, and incident response procedures; origin verification is an important preventative measure but not a comprehensive solution on its own.
+
+Open Question
+
+How can a national telecommunications provider combine RPKI-based route origin validation, routing policy, and real-time monitoring to detect and respond to BGP hijacking while minimizing the risk of blocking legitimate routes?
